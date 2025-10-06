@@ -1,0 +1,122 @@
+/* --- Estilos Generales y Variables --- */
+:root {
+    --color-primario: #0a192f;
+    --color-secundario: #112240;
+    --color-texto: #ccd6f6;
+    --color-texto-claro: #8892b0;
+    --color-resaltado: #64ffda;
+    --fuente-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- Reseteo Básico y Estilos del Body --- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: var(--fuente-principal);
+    background-color: var(--color-primario);
+    color: var(--color-texto-claro);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+h1, h2, h3 { color: var(--color-texto); }
+a { color: var(--color-resaltado); text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: #fff; }
+section { padding: 8rem 0 2rem; }
+
+/* --- Encabezado y Navegación --- */
+.header {
+    background-color: rgba(10, 25, 47, 0.85);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- CAMBIO AQUÍ: Estilos para el logo y el texto del encabezado --- */
+.nav-logo { 
+    font-size: 1.2rem; /* Ajustado para dar espacio al logo */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el logo y el texto */
+}
+
+.nav-logo img {
+    height: 40px; /* Altura del logo */
+}
+
+.nav-menu { list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0; }
+.nav-toggle { display: none; }
+
+/* --- Sección de Inicio (Hero) --- */
+#inicio { min-height: 80vh; display: flex; align-items: center; }
+#inicio .resaltado { color: var(--color-resaltado); margin-bottom: 1rem; }
+#inicio .titulo-principal { font-size: clamp(40px, 8vw, 80px); color: var(--color-texto); margin: 0; }
+#inicio .subtitulo { font-size: clamp(40px, 8vw, 70px); color: var(--color-texto-claro); margin-top: 0; }
+#inicio .descripcion { font-size: 1.1rem; max-width: 600px; margin-top: 1.5rem; }
+.cta-button { display: inline-block; padding: 0.8rem 1.6rem; border: 1px solid var(--color-resaltado); border-radius: 4px; margin-top: 2rem; transition: background-color 0.3s ease; }
+.cta-button:hover { background-color: rgba(100, 255, 218, 0.1); }
+
+/* --- Secciones Generales --- */
+#proyectos h2, #sobre-mi h2, #contacto h2 { font-size: 2rem; margin-bottom: 2rem; }
+
+/* --- Proyectos y Animación de Scroll --- */
+.proyectos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.proyecto-card { background-color: var(--color-secundario); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: flex; flex-direction: column; }
+.proyecto-card.animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.proyecto-card.is-visible { opacity: 1; transform: translateY(0); }
+
+/* --- CAMBIO AQUÍ: Estilos para que las imágenes sean más pequeñas y centradas --- */
+.proyecto-card img {
+    display: block; /* Necesario para que el margen automático funcione */
+    width: 80%; /* La imagen ocupará el 80% del ancho de la tarjeta */
+    height: auto; /* La altura se ajusta para mantener la proporción */
+    margin: 1.5rem auto; /* Margen arriba/abajo y centrado horizontal */
+    border-radius: 4px; /* Un toque estético */
+    object-fit: contain; /* Asegura que la imagen se vea completa */
+}
+
+.proyecto-info { padding: 0 1.5rem 1.5rem 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+.proyecto-info h3 { margin-top: 0; color: var(--color-resaltado); }
+.proyecto-info p { flex-grow: 1; }
+.proyecto-links { margin-top: 1rem; }
+.proyecto-links a { margin-right: 1rem; font-weight: bold; }
+
+/* ... (El resto del CSS para el formulario, footer y responsive se mantiene igual) ... */
+/* --- Pie de Página --- */
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid var(--color-secundario);
+}
+
+/* --- CAMBIO AQUÍ: Centrando los iconos con Flexbox --- */
+.social-links {
+    display: flex; /* Habilita Flexbox */
+    justify-content: center; /* Centra los iconos horizontalmente */
+    gap: 1.5rem; /* Espacio entre cada icono (más moderno que margin) */
+    margin-bottom: 1rem; /* Espacio entre los iconos y el texto de copyright */
+}
+
+.social-links a {
+    /* Ya no necesitamos el margen aquí gracias a 'gap' */
+    font-size: 1.5rem;
+}
